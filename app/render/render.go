@@ -11,9 +11,9 @@ import (
 	"github.com/gorilla/feeds"
 	"github.com/qiniu/log"
 
-	"github.com/cwen-coder/ljgo/app/config"
-	"github.com/cwen-coder/ljgo/app/library"
-	"github.com/cwen-coder/ljgo/app/util"
+	"github.com/cwen0/ljgo/app/config"
+	"github.com/cwen0/ljgo/app/library"
+	"github.com/cwen0/ljgo/app/util"
 )
 
 type Render struct {
@@ -101,8 +101,8 @@ func (r *Render) Archive(tpl template.Template, articles library.Articles) {
 	}
 
 	var articleMap = make(map[int][]library.Article)
-	for _, article := range articles {
-		articleMap[article.Date.Year()] = append(articleMap[article.Date.Year()], article)
+	for i := 0; i < len(articles); i++ {
+		articleMap[articles[i].Date.Year()] = append(articleMap[articles[i].Date.Year()], articles[i])
 	}
 
 	var archives library.Archives

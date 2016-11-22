@@ -10,13 +10,13 @@ ljgo 是使用 [GO](https://golang.org) 语言实现的简单静态博客引擎,
 go运行环境安装请自行google
 
 ```
-go get -u github.com/cwen-coder/ljgo
+go get -u github.com/cwen0/ljgo
 make install
 ```
 
 #### 直接下载编译好的可执行文件
 
-下载地址 ： [ljgo](https://github.com/cwen-coder/ljgo/releases)
+下载地址 ： [ljgo](https://github.com/cwen0/ljgo/releases)
 
 ## 快速入门
 
@@ -147,7 +147,7 @@ publish:
 
 ## 反馈贡献
 
-非常欢迎任何人的任何贡献。如有问题可报告至 [https://github.com/cwen-coder/ljgo/issues](https://github.com/cwen-coder/ljgo/issues)。
+非常欢迎任何人的任何贡献。如有问题可报告至 [https://github.com/cwen0/ljgo/issues](https://github.com/cwen0/ljgo/issues)。
 或是直接发邮件To me [yincwengo@gmail.com](mailto:yincwengo@gmail.com)
 
 

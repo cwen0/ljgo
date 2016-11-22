@@ -35,7 +35,7 @@
                     </li>
                     {{end}}
                 </ul>
-                <p class="copyright text-muted">Powered by <a href="https://github.com/cwen-coder/ljgo">ljgo</a> &nbsp;  </a> &copy; 2016 &nbsp;<a href="{{.Sijte.URL}}">{{.Site.Title}}</p>
+                <p class="copyright text-muted">Powered by <a href="https://github.com/cwen0/ljgo">ljgo</a> &nbsp;  </a> &copy; 2016 &nbsp;<a href="{{.Sijte.URL}}">{{.Site.Title}}</p>
             </div>
         </div>
     </div>

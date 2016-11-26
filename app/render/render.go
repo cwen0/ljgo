@@ -5,6 +5,7 @@ import (
 	"io/ioutil"
 	"os"
 	"path/filepath"
+	"sort"
 	"strconv"
 	"time"
 
@@ -101,8 +102,8 @@ func (r *Render) Archive(tpl template.Template, articles library.Articles) {
 	}
 
 	var articleMap = make(map[int][]library.Article)
-	for i := 0; i < len(articles); i++ {
-		articleMap[articles[i].Date.Year()] = append(articleMap[articles[i].Date.Year()], articles[i])
+	for _, article := range articles {
+		articleMap[article.Date.Year()] = append(articleMap[article.Date.Year()], article)
 	}
 
 	var archives library.Archives
@@ -117,6 +118,7 @@ func (r *Render) Archive(tpl template.Template, articles library.Articles) {
 		}
 		archives = append(archives, archive)
 	}
+	sort.Sort(archives)
 	var data = make(map[string]interface{})
 	data["Archives"] = archives
 	data["Site"] = r.Site

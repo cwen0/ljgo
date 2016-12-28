@@ -13,8 +13,7 @@ import (
 type ResponseWriter interface {
 	http.ResponseWriter
 	http.Flusher
-	// Status returns the status code of the response or 200 if the response has
-	// not been written (as this is the default response code in net/http)
+	// Status returns the status code of the response or 0 if the response has not been written.
 	Status() int
 	// Written returns whether or not the ResponseWriter has been written.
 	Written() bool
@@ -31,7 +30,9 @@ type beforeFunc func(ResponseWriter)
 func NewResponseWriter(rw http.ResponseWriter) ResponseWriter {
 	return &responseWriter{
 		ResponseWriter: rw,
-	}
+		status:         http.StatusOK,
+		size:           0,
+		beforeFuncs:    nil}
 }
 
 type responseWriter struct {
@@ -94,10 +95,6 @@ func (rw *responseWriter) callBefore() {
 func (rw *responseWriter) Flush() {
 	flusher, ok := rw.ResponseWriter.(http.Flusher)
 	if ok {
-		if !rw.Written() {
-			// The status will be StatusOK if WriteHeader has not been called yet
-			rw.WriteHeader(http.StatusOK)
-		}
 		flusher.Flush()
 	}
 }

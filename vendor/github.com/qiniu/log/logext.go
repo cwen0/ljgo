@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"io"
 	"os"
-	"strings"
 	"runtime"
+	"strings"
 	"sync"
 	"time"
 )
@@ -29,7 +29,7 @@ const (
 ) // [prefix][time][level][module][shortfile|longfile]
 
 const (
-	Ldebug   = iota
+	Ldebug = iota
 	Linfo
 	Lwarn
 	Lerror
@@ -51,12 +51,12 @@ var levels = []string{
 // the Writer's Write method.  A Logger can be used simultaneously from
 // multiple goroutines; it guarantees to serialize access to the Writer.
 type Logger struct {
-	mu     sync.Mutex   // ensures atomic writes; protects the following fields
-	prefix string       // prefix to write at beginning of each line
-	flag   int          // properties
-	Level  int
-	out    io.Writer    // destination for output
-	buf    bytes.Buffer // for accumulating text to write
+	mu         sync.Mutex // ensures atomic writes; protects the following fields
+	prefix     string     // prefix to write at beginning of each line
+	flag       int        // properties
+	Level      int
+	out        io.Writer    // destination for output
+	buf        bytes.Buffer // for accumulating text to write
 	levelStats [6]int64
 }
 
@@ -100,7 +100,7 @@ func moduleOf(file string) string {
 	if pos != -1 {
 		pos1 := strings.LastIndex(file[:pos], "/src/")
 		if pos1 != -1 {
-			return file[pos1+5:pos]
+			return file[pos1+5 : pos]
 		}
 	}
 	return "UNKNOWN"
@@ -314,7 +314,7 @@ func (l *Logger) Panicln(v ...interface{}) {
 func (l *Logger) Stack(v ...interface{}) {
 	s := fmt.Sprint(v...)
 	s += "\n"
-	buf := make([]byte, 1024 * 1024)
+	buf := make([]byte, 1024*1024)
 	n := runtime.Stack(buf, true)
 	s += string(buf[:n])
 	s += "\n"
@@ -516,7 +516,7 @@ func Panicln(v ...interface{}) {
 func Stack(v ...interface{}) {
 	s := fmt.Sprint(v...)
 	s += "\n"
-	buf := make([]byte, 1024 * 1024)
+	buf := make([]byte, 1024*1024)
 	n := runtime.Stack(buf, true)
 	s += string(buf[:n])
 	s += "\n"

@@ -3,9 +3,9 @@ package util
 import (
 	"html/template"
 
-	"github.com/russross/blackfriday"
+	blackfriday "gopkg.in/russross/blackfriday.v2"
 )
 
 func ParseMarkdown(markdown string) template.HTML {
-	return template.HTML(blackfriday.MarkdownCommon([]byte(markdown)))
+	return template.HTML(blackfriday.Run([]byte(markdown)))
 }

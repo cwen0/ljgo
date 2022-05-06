@@ -4,7 +4,16 @@ site:
     limit: 10
     theme: "themes/default"
     url:
-    comment:
+    comments:
+        giscus:
+            enable: true
+            repo: example
+            repo_id: xxx
+            category: xxx
+            category_id: xxx
+            mapping: xxx
+            reactions_eanbled: true
+            theme: light
     github:
     facebook:
     twitter:

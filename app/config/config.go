@@ -6,20 +6,40 @@ import (
 	"path/filepath"
 
 	"github.com/urfave/cli"
-
 	"gopkg.in/yaml.v2"
 )
 
 type SiteConfig struct {
-	Title     string `yaml:"title"`
-	Introduce string `yaml:"introduce"`
-	Limit     int    `yaml:"limit"`
-	Theme     string `yaml:"theme"`
-	URL       string `yaml:"url"`
-	Comment   string `yaml:"comment"`
-	Github    string `yaml:"github"`
-	Facebook  string `yaml:"facebook"`
-	Twitter   string `yaml:"twitter"`
+	Title     string   `yaml:"title"`
+	Introduce string   `yaml:"introduce"`
+	Limit     int      `yaml:"limit"`
+	Theme     string   `yaml:"theme"`
+	URL       string   `yaml:"url"`
+	Comments  Comments `yaml:"comments"`
+	Github    string   `yaml:"github"`
+	Facebook  string   `yaml:"facebook"`
+	Twitter   string   `yaml:"twitter"`
+}
+
+type Comments struct {
+	Disqus DisqusComment `yaml:"disqus"`
+	Giscus GiscusComment `yaml:"giscus"`
+}
+
+type DisqusComment struct {
+	Enable bool   `yaml:"enable"`
+	Site   string `yaml:"site"`
+}
+
+type GiscusComment struct {
+	Enable           bool   `yaml:"enable"`
+	Repo             string `yaml:"repo"`
+	RepoID           string `yaml:"repo_id"`
+	Category         string `yaml:"category"`
+	CategoryID       string `yaml:"category_id"`
+	Mapping          string `yaml:"mapping"`
+	ReactionsEnabled bool   `yaml:"reactions_enabled"`
+	Theme            string `yaml:"theme"`
 }
 
 type ServeConfig struct {

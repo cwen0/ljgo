@@ -3,7 +3,7 @@ package util
 import (
 	"html/template"
 
-	blackfriday "gopkg.in/russross/blackfriday.v2"
+	blackfriday "github.com/russross/blackfriday/v2"
 )
 
 func ParseMarkdown(markdown string) template.HTML {

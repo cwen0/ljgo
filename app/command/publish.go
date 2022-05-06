@@ -3,11 +3,11 @@ package command
 import (
 	"bufio"
 	"fmt"
+	"log"
 	"os/exec"
 	"runtime"
 
 	"github.com/cwen0/ljgo/app/config"
-	"github.com/qiniu/log"
 	"github.com/urfave/cli"
 )
 

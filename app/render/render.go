@@ -3,6 +3,7 @@ package render
 import (
 	"html/template"
 	"io/ioutil"
+	"log"
 	"os"
 	"path/filepath"
 	"sort"
@@ -10,7 +11,6 @@ import (
 	"time"
 
 	"github.com/gorilla/feeds"
-	"github.com/qiniu/log"
 
 	"github.com/cwen0/ljgo/app/config"
 	"github.com/cwen0/ljgo/app/library"

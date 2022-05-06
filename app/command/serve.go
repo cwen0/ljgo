@@ -3,12 +3,12 @@ package command
 import (
 	"fmt"
 	"io/ioutil"
+	"log"
 	"net/http"
 	"path"
 	"path/filepath"
 
 	"github.com/cwen0/ljgo/app/config"
-	"github.com/qiniu/log"
 	"github.com/urfave/cli"
 	"github.com/urfave/negroni"
 	"gopkg.in/fsnotify.v1"
@@ -55,7 +55,7 @@ func watch(c *cli.Context, cfg *config.Config) {
 					runBuild(c)
 				}
 			case err := <-watcher.Errors:
-				log.Errorf("error: %v", err)
+				log.Printf("error: %v", err)
 			}
 		}
 	}()

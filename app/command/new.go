@@ -7,12 +7,12 @@ import (
 	"fmt"
 	"io"
 	"io/ioutil"
+	"log"
 	"os"
 	"path/filepath"
 	"strings"
 
 	"github.com/cwen0/ljgo/app/util"
-	"github.com/qiniu/log"
 	"github.com/urfave/cli"
 )
 

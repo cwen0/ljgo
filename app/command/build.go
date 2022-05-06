@@ -3,6 +3,7 @@ package command
 import (
 	"html/template"
 	"io/ioutil"
+	"log"
 	"os"
 	"path/filepath"
 	"sort"
@@ -12,7 +13,6 @@ import (
 	"github.com/cwen0/ljgo/app/library"
 	"github.com/cwen0/ljgo/app/render"
 	"github.com/cwen0/ljgo/app/util"
-	"github.com/qiniu/log"
 	"github.com/urfave/cli"
 )
 
@@ -74,7 +74,7 @@ func walkArticle(path string) library.Articles {
 		var article library.Article
 		err = article.ParseArticle(path)
 		if err != nil {
-			log.Errorf("parse article: %v", err)
+			log.Printf("parse article: %v", err)
 			return nil
 		}
 		articles = append(articles, article)
